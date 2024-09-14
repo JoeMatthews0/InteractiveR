@@ -1,0 +1,4 @@
+- source: IntroToR.qmd
+  quarto-pub:
+    - id: 6ef198b0-5ea7-494b-91aa-1e4b9a8b629d
+      url: 'https://joematthews.quarto.pub/introduction-to-r'
