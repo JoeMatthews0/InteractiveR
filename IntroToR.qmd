@@ -1,26 +1,35 @@
 ---
 title: "Introduction To R"
 format: live-html
+editor: 
+  markdown: 
+    wrap: sentence
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 # Welcome to R!
 
-In this exercise we will introduce you to the data science programming language R. R is one of the most widely used programming languages in the world for data analysis, with particular strengths in statistical modelling along with data processing and visualisation.
+In this exercise we will introduce you to the data science programming language R.
+R is one of the most widely used programming languages in the world for data analysis, with particular strengths in statistical modelling along with data processing and visualisation.
 
 In this walkthrough we'll start by looking at R code in interactive windows in this document, then in the next part we'll get familiar with the most widely used environment for working with R: RStudio; and later we will look at how we can use R to write analysis reports using RMarkdown.
 
 # Part 1: Coding in R
 
-Tradition dictates that when learning to program in a new language, your first task is to print `"Hello World!"` to the console. Click the `Run Code` button below to take your first step on the way to becoming an R master.
+Tradition dictates that when learning to program in a new language, your first task is to print `"Hello World!"` to the console.
+Click the `Run Code` button below to take your first step on the way to becoming an R master.
 
 ```{webr}
 #| autorun: false
 print("Hello World!")
 ```
 
-We've learned out first R command! To print something to the console, we use the command `print` followed by the message we would like to print, wrapped in quotation marks `""`. In R, anytime we want to run a command, we always use round brackets `( )` to specify the inputs to our command. Let's continue our polite introduction with R, and introduce ourselves. Edit the second print statement below to tell R your name, and click `Run Code` again.
+We've learned out first R command!
+To print something to the console, we use the command `print` followed by the message we would like to print, wrapped in quotation marks `""`.
+In R, anytime we want to run a command, we always use round brackets `( )` to specify the inputs to our command.
+Let's continue our polite introduction with R, and introduce ourselves.
+Edit the second print statement below to tell R your name, and click `Run Code` again.
 
 ```{webr}
 #| autorun: false
@@ -37,7 +46,8 @@ Now we've got the idea behind print statements, use the code box below to write 
 
 ## Assigning Variables
 
-Just printing things to the console doesn't store them in memory, so R won't actually remember our name or age that we just told it. We can ask R to remember our information by storing them as variables.
+Just printing things to the console doesn't store them in memory, so R won't actually remember our name or age that we just told it.
+We can ask R to remember our information by storing them as variables.
 
 ```{webr}
 #| autorun: false
@@ -45,28 +55,27 @@ name = "Joe"
 age = 32
 ```
 
-Here we've created an object called `name` which we've assigned the value `Joe`, and an object called `age` which we've assigned the value `32`. Note that R doesn't automatically print out anything to the console when we define objects -- if we want to see their values, we just run the object name.
+Here we've created an object called `name` which we've assigned the value `Joe`, and an object called `age` which we've assigned the value `32`.
+Note that R doesn't automatically print out anything to the console when we define objects -- if we want to see their values, we just run the object name.
 
 ```{webr}
 #| autorun: false
-name = "Joe"
-age = 32
 name
 age
 ```
 
-Once we've defined a variable, we can just use its name anytime we want to access it. To print a combination of static text and variables we've defined, we use the `paste` command
+Once we've defined a variable, we can just use its name anytime we want to access it.
+To print a combination of static text and variables we've defined, we use the `paste` command
 
 ```{webr}
 #| autorun: false
-name = "Joe"
-age = 32
 paste("Hello R, my name is ", name, " and I am ", age, " years old.")
 ```
 
 Edit the above values of `name` and `age` to print your full greeting to R.
 
-**Note:** There are two main ways of assigning a value to an object in R, using `=` (i.e. `object = value` like above), or `<-` (i.e. `object <- value`). There are some minor differences in how these work in some rare situations, however as far as we're concerned both do the same thing.
+**Note:** There are two main ways of assigning a value to an object in R, using `=` (i.e. `object = value` like above), or `<-` (i.e. `object <- value`).
+There are some minor differences in how these work in some rare situations, however as far as we're concerned both do the same thing.
 
 **Tip:** If you want to assign a variable AND have the value of the variable be printed in the same line, just wrap the line where the variable is created in round brackets `( )`
 
@@ -82,7 +91,8 @@ Now we've got the formalities out of the way, let's see how we can use R to crun
 
 ## Using R as a Calculator
 
-R at its most basic form, serves as a calculator. Use the below window to calculate:
+R at its most basic form, serves as a calculator.
+Use the below window to calculate:
 
 1.  174 + 895
 
@@ -115,19 +125,25 @@ sqrt(144) # Square roots
 
 ## Annotating Code
 
-In the code chunk above, note the `#` symbols, followed by a description of what the line does. This is an example of code annotation, which is a highly recommended practice when writing code, in order to enable someone else (or yourself at a future date) know what the code does/is supposed to do.
+In the code chunk above, note the `#` symbols, followed by a description of what the line does.
+This is an example of code annotation, which is a highly recommended practice when writing code, in order to enable someone else (or yourself at a future date) know what the code does/is supposed to do.
 
-In R we add annotations/comments to our code using the `#` symbol. When R sees a `#` symbol it stops trying to interpret anything after the `#` symbol on the same line as code, meaning we are free to use standard language to describe what is going on, without causing R to do strange things thanks to our choice of words.
+In R we add annotations/comments to our code using the `#` symbol.
+When R sees a `#` symbol it stops trying to interpret anything after the `#` symbol on the same line as code, meaning we are free to use standard language to describe what is going on, without causing R to do strange things thanks to our choice of words.
 
-It is recommended to include at least one line of comments for each chunk of code you write, although you are free to use more than this if there are important details you feel should be included. Always err on the side of caution when adding comments, it's a lot better to have to scroll slightly more because the past version of you overexplained something, rather than forgetting or misinterpreting what a piece of code does because past you was overconfident about your memory!
+It is recommended to include at least one line of comments for each chunk of code you write, although you are free to use more than this if there are important details you feel should be included.
+Always err on the side of caution when adding comments, it's a lot better to have to scroll slightly more because the past version of you overexplained something, rather than forgetting or misinterpreting what a piece of code does because past you was overconfident about your memory!
 
 ## Variable Types
 
 In introducing ourselves to R, we've actually introduced ourselves to the concept of **variable types**, specifically the `character` type which refers to text, like our `name`; and the `numeric` variable type which refers to numbers, like our `age`.
 
-**Note:** In some other coding languages, the `numeric` type gets broken down further, e.g. into whether the number is a whole number `integer` or a decimal `double`. While these types exist in R, for almost all practical purposes we never need to worry about the distinction ourselves, and so we can just think of all numbers as being `numeric` type.
+**Note:** In some other coding languages, the `numeric` type gets broken down further, e.g. into whether the number is a whole number `integer` or a decimal `double`.
+While these types exist in R, for almost all practical purposes we never need to worry about the distinction ourselves, and so we can just think of all numbers as being `numeric` type.
 
-The type of a variable determines how it behaves and what we can do with it. For example we can do standard mathematical operations like addition and multiplication on `numeric` objects, which we can't do with `character` objects. Conversely, `numeric` objects can only contain numeric digits 0-9, whereas `character` objects can be made up of numbers, letters or special characters.
+The type of a variable determines how it behaves and what we can do with it.
+For example we can do standard mathematical operations like addition and multiplication on `numeric` objects, which we can't do with `character` objects.
+Conversely, `numeric` objects can only contain numeric digits 0-9, whereas `character` objects can be made up of numbers, letters or special characters.
 
 ```{webr}
 #| autorun: false
@@ -136,7 +152,9 @@ The type of a variable determines how it behaves and what we can do with it. For
 "Hello" + "World!"
 ```
 
-Defining `character` objects is easy, they are anything that are surrounded by quote marks `""`, so `"Joe"`, "`Nice to meet you`", `"Ant & Dec"` would all be valid character objects in R. This even applies to numbers if contained in quote marks. You can check if an object is of type `numeric` using the `is.numeric` command
+Defining `character` objects is easy, they are anything that are surrounded by quote marks `""`, so `"Joe"`, "`Nice to meet you`", `"Ant & Dec"` would all be valid character objects in R.
+This even applies to numbers if contained in quote marks.
+You can check if an object is of type `numeric` using the `is.numeric` command
 
 ```{webr}
 #| autorun: false
@@ -144,9 +162,11 @@ is.numeric(1975)
 is.numeric("1975")
 ```
 
-**Question:** What do you think the command would be to check if an object is of type `character`? Edit the above code block to check.
+**Question:** What do you think the command would be to check if an object is of type `character`?
+Edit the above code block to check.
 
-**Note:** As you may have noticed from the code chunks so far, we do not need to declare the type of a variable when we create it, R will define the variable type based on what we input. This is an example of the flexibility that makes R a friendlier language for beginners compared to some other languages, but also means we need to be careful ourselves to make sure that we don't introduce bugs in our code through variables being a different type to what we intend etc.
+**Note:** As you may have noticed from the code chunks so far, we do not need to declare the type of a variable when we create it, R will define the variable type based on what we input.
+This is an example of the flexibility that makes R a friendlier language for beginners compared to some other languages, but also means we need to be careful ourselves to make sure that we don't introduce bugs in our code through variables being a different type to what we intend etc.
 
 ### Common Pitfalls with R Variables
 
@@ -173,7 +193,9 @@ weight = 80 # Weight in kilos
 
 ## Working with Vectors
 
-Usually when we're working with data, we'll be dealing with groups of data points rather than just single observations. To collect values together in R, we use the `c()` command, which stands for `concatenate`, where we include the individual objects we want to combine separated by commas. The resulting object is often called a vector or a 2D array.
+Usually when we're working with data, we'll be dealing with groups of data points rather than just single observations.
+To collect values together in R, we use the `c()` command, which stands for `concatenate`, where we include the individual objects we want to combine separated by commas.
+The resulting object is often called a vector or a 2D array.
 
 ```{webr}
 #| autorun: false
@@ -182,7 +204,8 @@ names = c("Joe", "Lee", "Sarah", "Lucy", "Ben")
 
 We refer to each object in a vector as an **element** of that vector.
 
-**Note:** In R, all elements in a vector have to be of the same variable type. If we attempt to create a vector containing different variable types, R will convert some of the elements so all the types match.
+**Note:** In R, all elements in a vector have to be of the same variable type.
+If we attempt to create a vector containing different variable types, R will convert some of the elements so all the types match.
 
 ```{webr}
 #| autorun: false
@@ -210,7 +233,8 @@ We can check how many observations are in a vector using the `length` command
 length(names)
 ```
 
-We can create vectors containing sequences of numbers using the `seq` command, which takes three arguments: the number to start at, the number to finish at, and the size of the gaps between the numbers. So to generate a sequence from 0 to 100 in steps of 5, we would run
+We can create vectors containing sequences of numbers using the `seq` command, which takes three arguments: the number to start at, the number to finish at, and the size of the gaps between the numbers.
+So to generate a sequence from 0 to 100 in steps of 5, we would run
 
 ```{webr}
 #| autorun: false
@@ -218,16 +242,19 @@ x = seq(0, 100, 5)
 x
 ```
 
-**Question:** Edit the above code to go from 10 to 140 in steps of 2. How many numbers are in the resulting sequence?
+**Question:** Edit the above code to go from 10 to 140 in steps of 2.
+How many numbers are in the resulting sequence?
 
-In a variety of situations, we will want to generate a sequence of numbers which just increase by 1. There is a handy shortcut for this using a colon `:` which just needs our start and end numbers either side
+In a variety of situations, we will want to generate a sequence of numbers which just increase by 1.
+There is a handy shortcut for this using a colon `:` which just needs our start and end numbers either side
 
 ```{webr}
 #| autorun: false
 10 : 20
 ```
 
-We might also want to generate a vector, that is just a given value(s) repeated several times. To do this, we can use the `rep` command
+We might also want to generate a vector, that is just a given value(s) repeated several times.
+To do this, we can use the `rep` command
 
 ```{webr}
 #| autorun: false
@@ -235,7 +262,9 @@ rep("Hello", 7)
 rep(0, 10)
 ```
 
-We can even use `rep` to repeat a vector multiple times. There are two main cases here: we want to repeat a full vector multiple times, or we want to repeat each element of a vector multiple times. Run the code chunk below and try to understand how each line works.
+We can even use `rep` to repeat a vector multiple times.
+There are two main cases here: we want to repeat a full vector multiple times, or we want to repeat each element of a vector multiple times.
+Run the code chunk below and try to understand how each line works.
 
 ```{webr}
 #| autorun: false
@@ -258,9 +287,10 @@ R was primarily developed for carrying out statistical analyses, and so as such 
 
 -   `max()` – the largest value in a sample
 
--   `iqr()` – the interquartile range of a sample
+-   `IQR()` – the interquartile range of a sample
 
-The code chunk below contains a vector of 12 monthly profits for a company. Calculate the average (mean) monthly profit, the standard deviation of the profits, as well as the highest and lowest profit.
+The code chunk below contains a vector of 12 monthly profits for a company.
+Calculate the average (mean) monthly profit, the standard deviation of the profits, as well as the highest and lowest profit.
 
 ```{webr}
 #| autorun: false
@@ -271,7 +301,10 @@ profits = c(100000, 95000, -6000, 25000, 110000, 70000,
 
 ## Working with Data Frames
 
-In addition to usually having multiple observations, it's quite common that our data will contain multiple variables, of which we'll have multiple observations. In R we encode this information in a **data frame**, a 2 way table where the columns correspond to variables, and rows correspond to the individuals we have data on. In this course we look to work with data in a **tidy** format, where each row represents a new individual, and each column represents a new variable, and so the number of rows in our data should equal the number of individuals, and the number of columns should equal the number of variables. Not everyone stores their data in a tidy format, and so it can involve some work pre-processing the data to get it into the tidy format we can work with.
+In addition to usually having multiple observations, it's quite common that our data will contain multiple variables, of which we'll have multiple observations.
+In R we encode this information in a **data frame**, a 2 way table where the columns correspond to variables, and rows correspond to the individuals we have data on.
+In this course we look to work with data in a **tidy** format, where each row represents a new individual, and each column represents a new variable, and so the number of rows in our data should equal the number of individuals, and the number of columns should equal the number of variables.
+Not everyone stores their data in a tidy format, and so it can involve some work pre-processing the data to get it into the tidy format we can work with.
 
 In the majority of situations, we will read data into R from an existing spreadsheet, e.g. a `.csv` file, but we can create them manually using the `data.frame` command.
 
@@ -285,7 +318,8 @@ friends = data.frame(
 friends
 ```
 
-In this example, we've actually met a third variable type, known as a `logical` or `boolean` object, which can take two values: `TRUE` and `FALSE` (note the all caps, as opposed to `True` and `False` in languages like Python). We don't need to worry about this too much for now, but will come back to it soon when we want to think about how to extract individuals from our data according to some criteria we're interested in.
+In this example, we've actually met a third variable type, known as a `logical` or `boolean` object, which can take two values: `TRUE` and `FALSE` (note the all caps, as opposed to `True` and `False` in languages like Python).
+We don't need to worry about this too much for now, but will come back to it soon when we want to think about how to extract individuals from our data according to some criteria we're interested in.
 
 We can extract columns from a data frame using `$` syntax, i.e. to extract the `ages` of our friends, we could run
 
@@ -296,7 +330,8 @@ friends$ages
 
 **Question:** Edit the above code chunk to extract the names from the `friends` data
 
-We can then combine the `$` and `[ ]` notation, to extract specific elements from specific columns. E.g. to extract the age of the third person
+We can then combine the `$` and `[ ]` notation, to extract specific elements from specific columns.
+E.g. to extract the age of the third person
 
 ```{webr}
 #| autorun: false
@@ -321,7 +356,8 @@ We can also extract the column names from our data frame as a vector using the `
 names(friends)
 ```
 
-A very handy command when working with data frames is the `head` command, which shows you the first few rows of a data frame. It prints 6 rows by default, although we can specify a different number if we wish through the `n` input
+A very handy command when working with data frames is the `head` command, which shows you the first few rows of a data frame.
+It prints 6 rows by default, although we can specify a different number if we wish through the `n` input
 
 ```{webr}
 #| autorun: false
@@ -331,11 +367,185 @@ head(friends, n = 3)
 
 It's always recommended to use the `head` command whenever you've loaded or created a new data frame, just to ensure that it looks and is formatted how you're expecting.
 
+## Conditional Statements
+
+Recall the last data type we discovered, the logical or boolean data type, which takes two possible values, `TRUE` and `FALSE`.
+As well as being a data type which can exist in our data frames, like the `Male` column in our `friends` data set, we can also generated boolean objects using what are known as conditional statements.
+Conditional statements are logical expressions which have two possible answers, TRUE or FALSE, and every input to a conditional statement must give a TRUE or FALSE answer.
+
+Say for example, the statement `10 is greater than 5`.
+We represent `greater than` with a `>` symbol, and so we can evaluate this expression in R
+
+```{webr}
+#| autorun: false
+# Is 10 greater than 5?
+10 > 5
+```
+
+We see that this expression returns `TRUE`, since 10 is greater than 5.
+Conversely, if we ask is `10 less than 5`
+
+```{webr}
+#| autorun: false
+# Is 10 less than 5?
+10 < 5
+```
+
+We see that this expression returns `FALSE`, since 10 is not less than 5.
+In these examples, we were checking if 10 was strictly greater than or less than 5.
+What do you think would happen if we ask if `10 is greater than 10` -- have a think and then run the code chunk to find if you were right.
+
+```{webr}
+#| autorun: false
+# Is 10 greater than 10?
+10 > 10
+```
+
+We can check if a value is greater than or equal to another value using the `>=` syntax
+
+```{webr}
+#| autorun: false
+# Is 10 greater than or equal to 10?
+10 >= 10
+```
+
+**Question:** Modify the above statement to a statement which checks if a value is less than or equal to another value, and returns `FALSE`.
+
+We can check if two values are equal using the `==` syntax
+
+```{webr}
+#| autorun: false
+# Does 1 equal 2?
+1 == 2
+```
+
+And check if things are not equal using the `!=` syntax
+
+```{webr}
+#| autorun: false
+# Is 9 not equal to 5?
+9 != 5
+```
+
+We can also check if two character objects are the same.
+Try to predict the output for each line before you run the code chunk
+
+```{webr}
+#| autorun: false
+"Apple" == "Apple"
+"Apple" != "Apple"
+"Apple" == "apple"
+"Apple" != "Apple "
+```
+
+So far we've just been looking at conditional expressions using numerical values, but they work exactly the same with predefined variables
+
+```{webr}
+#| autorun: false
+cost = 500000
+budget = 650000
+# Have we gone over budget?
+cost > budget
+# ... relief!
+```
+
+**Tip:** When dealing with conditional expressions, the `!` serves as a way to flip `TRUE`s to `FALSE`s and `FALSE`s to `TRUE`s, and so is useful when you want to find out if something is NOT the case, like in the example above where we wanted to see if 9 was NOT equal to 5.
+You can do this with any conditional expression, by putting your expression in round brackets `(` `)` and putting an exclamation mark symbol `!` at the front
+
+```{webr}
+#| autorun: false
+cost > budget # Have we gone over budget?
+!(cost > budget) # Have we NOT gone over budget?
+```
+
+This may not seem too exciting or useful now, but this is because we've just been evaluating expressions for single objects.
+Where conditional expressions really come in handy is when we can evaluate statements using vectors.
+
+Recall the `profits` vector from earlier
+
+```{webr}
+#| autorun: false
+profits
+```
+
+One question we might have is, "Which months did we actually make a profit?" We can see this using conditional expressions
+
+```{webr}
+#| autorun: false
+profits > 0
+```
+
+We see that our output starts `TRUE`, `TRUE`, `FALSE`, indicating that `profits > 0` is `TRUE` for the first two elements (i.e. we made a profit for the first two months) and `FALSE` for the third (i.e. we didn't make a profit in month 3)
+
+We can see which values return `TRUE` for a conditional statement using the `which` command
+
+```{webr}
+#| autorun: false
+which(profits > 0)
+```
+
+This returns a vector of numbers, indicating the position of the `TRUE`s for our statement (in this case, it tells us which months actually had a profit \> 0)
+
+**Question:** Edit the above code chunk to find out which months had a profit of exactly `25000`
+
+### Combining Conditional Expressions
+
+So far we've just looked at conditional expressions which just use a single expression for a single variable.
+Often we'll want the answer to more complicated questions, which still have a `TRUE`/`FALSE` answer, but will have more conditions involved.
+We can do this using the AND operator `A & B`, which returns `TRUE` if both A and B are `TRUE`, and will return `FALSE` otherwise.
+
+So say for our `profits` vector, we wanted to see the months where we'd made a profit, but the profit was less than `100000`
+
+```{webr}
+#| autorun: false
+which(profits > 0) # Months where we made a profit
+which(profits < 100000) # Months where the profit was less than 100000
+which(profits > 0 & profits < 100000) # Months where we made a profit AND it was less than 100000
+```
+
+**Question:** Edit the above code chunk to find the months where we made a loss (i.e. `profit < 0`) but the loss was less than 10000 (i.e. `profit > -10000`)
+
+**Note:** When combining conditional expressions, both sides of the operator must be complete conditional expressions in themselves, i.e. both sides of the `&` must evaluate to `TRUE` or `FALSE` in isolation, e.g. if we wanted to see when profits are between 10000 and 20000 we cannot write `profits > 10000 & < 20000` since the right hand side of the `&` isn't a conditional expression, we would need to write `profits > 10000 & profits < 20000`
+
+We can also combine conditional expressions using the OR operator, `A | B`, which returns `TRUE` if A or B (or both) are `TRUE`, and only returns `FALSE` if A and B are both `FALSE`.
+
+Say for our company, it's normal to have a monthly profit of between `20000` and `100000` and we want to find the unusual months where this didn't happen.
+We can think of this as a conditional expression, where we want to find the months where profit was less than 20000 or it was greater than 100000.
+
+```{webr}
+#| autorun: false
+which(profits < 20000) # Months where profit was less than 20000
+which(profits > 100000) # Months where the profit was more than 100000
+which(profits < 20000 | profits > 100000) # Months where profit was outside the 20-100000 range
+```
+
+**Question:** Adjust the above code chunk to see if there were any months where we made more than `100000` in profit, or made a loss of more than `100000`
+
+Inverting conditional expressions using `!` works the same for combined conditional expressions, just wrap the entire combined expression in round brackets `(` `)` and put a `!` at the start
+
+```{webr}
+#| autorun: false
+which(profits > 20000 & profits < 100000) # Months in the expected range
+which(!(profits >= 20000 & profits <= 100000)) # Months NOT in the expected range
+```
+
+Note here we've seen two ways to find the the unexpected months, first by using an OR operator `|`, and then by combining an AND operator `&`, with an inversion `!`.
+
+```{webr}
+#| autorun: false
+which(profits < 20000 | profits > 100000) 
+which(!(profits >= 20000 & profits <= 100000))
+```
+
 ## Missing Values
 
-Data frames are quite flexible, in that the different columns are allowed to be of different variable types (but each column can still only have one variable type), like in the `friends` data frame, we have 1 `character` column, one `numeric` column, and one `boolean` column. One restriction that is in place on data frames though, is that **all columns must be of the same length** -- i.e. each variable has to have the same number of observations. 
-This then begs the question -- what do we do if we have some missing information? Let's say for the `friends` example, we didn't know how old Joey is?
-We can encode a missing value in a data frame using `NA`s. `NA` (standing for Not Available) is how we encode a single piece of missing information. So, if we didn't know Joey's age, our data frame might look like
+Data frames are quite flexible, in that the different columns are allowed to be of different variable types (but each column can still only have one variable type), like in the `friends` data frame, we have 1 `character` column, one `numeric` column, and one `boolean` column.
+One restriction that is in place on data frames though, is that **all columns must be of the same length** -- i.e. each variable has to have the same number of observations.
+This then begs the question -- what do we do if we have some missing information?
+Let's say for the `friends` example, we didn't know how old Joey is?
+We can encode a missing value in a data frame using `NA`s.
+`NA` (standing for Not Available) is how we encode a single piece of missing information.
+So, if we didn't know Joey's age, our data frame might look like
 
 ```{webr}
 #| autorun: false
@@ -356,7 +566,8 @@ NA + "Hello"
 NA / NA
 ```
 
-There is a final type of 'non-answer' variable type which can arise from some dodgy mathematical calculations, which is `NaN` (standing for Not A Number). These won't typically be part of a dataset, and instead tend to arise when we try to do something which is mathematically difficult to define
+There is a final type of 'non-answer' variable type which can arise from some dodgy mathematical calculations, which is `NaN` (standing for Not A Number).
+These won't typically be part of a dataset, and instead tend to arise when we try to do something which is mathematically difficult to define
 
 ```{webr}
 #| autorun: false
@@ -364,4 +575,3 @@ There is a final type of 'non-answer' variable type which can arise from some do
 Inf - Inf
 Inf / Inf
 ```
-
