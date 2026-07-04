@@ -277,17 +277,17 @@ rep(x, each = 3)
 
 R was primarily developed for carrying out statistical analyses, and so as such has a number of in built commands for summarising vectors of numeric data.
 
--   `mean()` – calculating the arithmetic mean of a sample
+- `mean()` – calculating the arithmetic mean of a sample
 
--   `median()` – calculating the median of a sample
+- `median()` – calculating the median of a sample
 
--   `sd()` – calculating the standard deviation of a sample
+- `sd()` – calculating the standard deviation of a sample
 
--   `min()` – the smallest value in a sample
+- `min()` – the smallest value in a sample
 
--   `max()` – the largest value in a sample
+- `max()` – the largest value in a sample
 
--   `IQR()` – the interquartile range of a sample
+- `IQR()` – the interquartile range of a sample
 
 The code chunk below contains a vector of 12 monthly profits for a company.
 Calculate the average (mean) monthly profit, the standard deviation of the profits, as well as the highest and lowest profit.
@@ -575,3 +575,76 @@ These won't typically be part of a dataset, and instead tend to arise when we tr
 Inf - Inf
 Inf / Inf
 ```
+
+## Plotting in R
+
+When working with data, one very common and important task we need to be able to do is to create graphs and plots of our data.
+To see plotting in action, we will use one of my favourite datasets, the `penguins` dataset, which gives measurement data on different penguins observed at Palmer Station, Antarctica.
+We load the data into our R session using the `data()` command, and then can view the top rows using `head()`.
+
+```{webr}
+#| autorun: false
+
+data("penguins")
+
+head(penguins)
+```
+
+The data contains: the penguin species (`species`), the island the penguin was found (`island`), the length of the penguin bill (`bill_len`), the depth of the penguin bill (`bill_dep`), the length of the flipper (`flipper_len`) (all lengths in cm), how much the penguin weighs in grams (`body_mass`), the sex of the penguin (`sex`) and the year the penguin was observed (`year`).
+
+Note how some of the entries for the 4th penguin are `NA`, meaning the data is missing (perhaps it was never recorded, or was just lost before it was recorded in this dataset)
+
+To create plots of our data, we can use the `plot` command.
+To do this, we give `plot` a number of inputs
+
+- `x` the variable to plot on the x-axis
+- `y` the variable to plot on the y-axis
+- `main` the heading for our plot
+- `xlab` / `ylab` - the axis labels for the x and y axes
+
+For example, to produce a plot of bill length against bill depth, we would run
+
+```{webr}
+#| autorun: false
+
+plot(penguins$bill_len, penguins$bill_dep)
+```
+
+This produces a scatter plot where each point corresponds to a row (i.e. a penguin) in our data. If we were to comment on this, we would say there appears to be a positive relationship, or positive correlation, between bill length and bill depth -- higher bill lengths are associated with higher bill depths!
+
+**Question** Edit the above command to produce a plot of flipper length against body mass -- what can we say about these variables?
+
+We've made our scatter plot but the labels are a bit rubbish, they're just the names of the R variables, which wouldn't look good in an official document. Fortunately we can set the headings and axis labels to be something much better ourselves, by giving extra inputs to `plot`.
+
+```{webr}
+#| autorun: false
+
+plot(penguins$bill_len, penguins$bill_dep,
+     main = "Scatter plot of penguin bill length against bill depth",
+     xlab = "Bill length (mm)",
+     ylab = "Bill depth (mm)")
+```
+
+Here the `main` input specifies the heading of the plot, and `xlab`/`ylab` gives the x and y axis labels. 
+**Note**: Our headings/labels always need to be given in quotes `"`.
+
+**Question:** Edit your flipper length vs body mass plot to have better headings and axis labels.
+
+What happens if we only give `plot` one variable instead of two?
+
+```{webr}
+#| autorun: false
+
+plot(penguins$bill_len)
+```
+
+We get a scatter plot just of one variable. Here the y-axis is the bill lengths, and the x-axis is just the row number of the penguin (so the first point on the left corresponds to row 1 of our data, the next one corresponds to row 2 etc)
+For plots like this, it's usually better to represent them with a line rather than points, so we can easily see how the variable changes. We can create a line plot by adding the input `type = "l"` to our plot command.
+
+```{webr}
+#| autorun: false
+
+plot(penguins$bill_len, type = "l")
+```
+
+**Question:** Create a line plot of the penguin body masses. Remember to give your plot a good heading and axis labels!
